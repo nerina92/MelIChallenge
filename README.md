@@ -31,3 +31,7 @@ Otro dato importante a mencionar sobre el proyecto es el agregado de un Intercep
 
 Se usan las corrutinas, que son hilos livianos y se valen de hilos o pool de hilos para ejecutar código de manera concurrente y de forma muy eficiente optimizando el uso de recursos.
 
+###### Aclaraciones
+
+Para la serialización de los datos recibidos por la api, en el caso de la primer consulta, el search general, opte por generar data class serializables. Esta es la forma que estoy acostumbrada a usar ya que las apis con las que trabajo son de menor dimension y cuento con toda la documentaión y tipos de datos recibidos para cada elemento del JSON, en este caso, al ser tam amplia la api, me paso que obtengo algunos null de los cuales no puedo obtener información y puede pasar que de errores de serialización para busquedas particulares. Para la segunda consulta opté por usar un String y JSONObject para obtener el JSON e ir buscando solo las claves que use para mostrar en la vista, un procedimiento más general y rústico pero más práctico en este caso. 
+
