@@ -1,6 +1,6 @@
 package com.example.melichallenge.data
 
-import com.example.melichallenge.model.SearchResponse
+import com.example.melichallenge.domain.model.SearchResponse
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.GET

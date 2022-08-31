@@ -1,10 +1,9 @@
 package com.example.melichallenge.network
 
 import com.example.melichallenge.data.InterfazMeliChallRepository
-import com.example.melichallenge.model.Item
+import com.example.melichallenge.domain.model.Item
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.json.JSONObject
 
 class ApiServiceMeliChallenge(private val interfazMeliChallRepository: InterfazMeliChallRepository) {
 

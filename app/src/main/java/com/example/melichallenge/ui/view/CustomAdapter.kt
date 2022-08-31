@@ -9,14 +9,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.melichallenge.R
-import com.example.melichallenge.model.Item
+import com.example.melichallenge.domain.model.Item
+import com.example.melichallenge.domain.model.SearchRowMeliChallenge
 import com.squareup.picasso.Picasso
 
 class CustomAdapter : RecyclerView.Adapter<CustomAdapter.CustomViewHolder> () {
-    private var itemList= mutableListOf<Item>()
+    private var itemList= mutableListOf<SearchRowMeliChallenge>()
     private var context: Context? = null
 
-    fun setItems(items:List<Item>){
+    fun setItems(items:List<SearchRowMeliChallenge>){
         this.itemList=items.toMutableList()
         notifyDataSetChanged()
     }
@@ -30,8 +31,8 @@ class CustomAdapter : RecyclerView.Adapter<CustomAdapter.CustomViewHolder> () {
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        val it:Item = itemList!![position];
-        holder.txtTitle.text = it.title
+        val it:SearchRowMeliChallenge = itemList!![position];
+       /* holder.txtTitle.text = it.title
         holder.txtPrice.text="$ ${it.price}"
         if(it.shipping.free_shipping){
             if(it.shipping.tags.contains("fulfillment")){
@@ -46,6 +47,24 @@ class CustomAdapter : RecyclerView.Adapter<CustomAdapter.CustomViewHolder> () {
                 .load(it.thumbnail)
                 //.placeholder(R.drawable.ic_launcher_foreground)
                 //.error(R.drawable.ic_launcher_background)"@android:drawable/ic_menu_crop"
+                .fit()// To fit image into imageView
+                .into(holder.imgView);
+        } catch (ex: NullPointerException) {
+            ex.printStackTrace()
+        } catch (ex: IndexOutOfBoundsException) {
+            ex.printStackTrace()
+        }
+        holder.itemView.setOnClickListener { v: View? ->
+            val miIntent = Intent(context, ItemDetailActivity::class.java)
+            miIntent.putExtra("id", it.id)
+            context!!.startActivity(miIntent)
+        }*/
+        holder.txtTitle.text=it.title
+        holder.txtPrice.text="$ ${it.price}"
+        holder.txtDetail.text=it.sheeping
+        try {
+            Picasso.get()
+                .load(it.url)
                 .fit()// To fit image into imageView
                 .into(holder.imgView);
         } catch (ex: NullPointerException) {

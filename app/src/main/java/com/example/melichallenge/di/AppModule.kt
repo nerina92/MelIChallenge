@@ -7,5 +7,6 @@ val appModules= listOf(
     interfazApiServiceModule,
     apiServiceModule,
     repositoryModule,
+    UseCaseModule,
     viewModelModule
 )
